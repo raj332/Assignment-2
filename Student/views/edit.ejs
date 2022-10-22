@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Update</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+</head>
+<body>
+    <form >
+      Name<input type="text" name="Name" id="name"value="<%= viewstudent.Name %>" >  <br><br>
+      Roll no<input type="text" name="Rollno" id="rollno" value="<%= viewstudent.Rollno %>"> <br><br>
+      Semester<input type="text" name="Semester" id="semester" value="<%= viewstudent.Semester %>" > <br><br>
+      Age <input type="text" name="Age" id="age"value="<%= viewstudent.Age %>" > <br><br>
+
+      <button type="button" id="updatebtn" onclick="sendData()" > Update </button>
+    </form>
+</body>
+<script>
+
+let sendData=async ()=>{
+  console.log("clicked")
+
+  name = document.getElementById("name").value;
+rollno = document.getElementById("rollno").value;
+semester = document.getElementById("semester").value;
+age= document.getElementById("age").value;
+
+
+let data = {
+  "Name":name,
+  "Rollno":rollno,
+  "Semester":semester,
+  "Age":age
+}
+  let response= await fetch('http://localhost:3000/student/edit',{
+    method:'POST',
+    body:JSON.stringify(data),
+    headers: {'Content-Type':'application/json','authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhajMzMiIsImlhdCI6MTY2NDQxNjQzM30.eIORVNlkb4mv3lPeGzQ0a6H0BJzT-bTG7wtAN5jN6UA'}
+  });
+  console.log(response)
+  let resbody= response.text();
+  console.log(resbody);
+  window.location.replace("http://localhost:3000/student/display");
+}
+
+  </script>
+</html>

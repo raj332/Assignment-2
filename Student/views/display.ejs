@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Temp</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+</head>
+<body>
+    <Table>
+        <Tr>
+            <th> Name </th>
+            <th> Roll No </th>
+            <th> Semester </th>
+            <th> Age </th><th>
+            </th>
+            <th></th>
+        </Tr>
+      <% students.forEach((student)=>{ %>
+             <tr>
+                <td> <%= student.Name %></td>
+                <td> <%= student.Rollno %></td>
+                <td> <%= student.Semester %></td>
+                <td> <%= student.Age %></td>
+                <td><a href="/student/update/<%= student.Rollno %>"> Edit</a></td>
+                <td><a href="/student/delete/<%= student.Rollno %>"> Delete</a></td>
+             </tr>
+
+     <% }) %>
+    </Table>
+</body>
+</html>

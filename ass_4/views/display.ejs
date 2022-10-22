@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <a href="/student/add">Add New</a>
+        <table border="1">
+            <% students.forEach((student)=>{ %>
+            <tr>
+                <td> <%= student.name %></td>
+                <td><%= student.rollno %></td>
+                <td><%= student.semester %></td>
+                <td><%= student.grade %></td>
+                <td><a href="/student/edit/<%= student._id%>">Edit</a></td>
+                <td><a href="/student/delete/<%= student._id%>">Delete</a></td>
+            </tr>
+                <%  })%>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>
+            Ass_1_File_Upload
+        </title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            Single Upload :
+            <input type="file" name="images" >
+            <button type="submit">Upload</button>
+       <br></form><br>
+       <form method="post" action="/uploads" enctype="multipart/form-data">
+            Multiple Upload :
+            <input type="file" multiple name="multi_images" >
+            <button type="submit">Upload</button>
+        </form>
+    </body>
+</html>
